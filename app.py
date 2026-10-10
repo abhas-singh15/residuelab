@@ -179,7 +179,7 @@ def draw_heatmap(expr, poles, radius, limit, n):
         inside = abs(p) < radius - 1e-8
         on = abs(abs(p) - radius) <= 1e-8
         color = "lime" if inside else "white"
-        ax.scatter(p.real, p.imag, marker="x", s=100, linewidths=2.5,
+        ax.scatter(p.real, p.imag, marker="x", s=50, linewidths=1.5,
                    color=color, zorder=5)
         label = f"Pole {idx+1}"
         ax.annotate(label, (p.real, p.imag), xytext=(6, 6),
