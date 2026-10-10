@@ -173,7 +173,7 @@ def draw_heatmap(expr, poles, radius, limit, n):
     fig.colorbar(mesh, ax=ax, label=r"$\log_{10}|f(z)|$")
     angles = np.linspace(0, 2 * np.pi, 500)
     ax.plot(radius * np.cos(angles), radius * np.sin(angles),
-            color="cyan", linewidth=2, label=fr"Contour $|z|={radius:g}$")
+            color="cyan", linewidth=2, label=f"Contour (radius = {radius:g})")
     for idx, item in enumerate(poles):
         p = item["pole"]
         inside = abs(p) < radius - 1e-8
@@ -226,7 +226,7 @@ with left:
     st.subheader("Complex-plane heatmap")
     st.caption("Colour shows log₁₀|f(z)|. Pole markers are shown as crosses; the cyan circle is the selected contour.")
     fig = draw_heatmap(expr, poles, radius, plot_limit, grid_size)
-    st.pyplot(fig, use_container_width=True)
+    st.pyplot(fig, width='stretch')
     plt.close(fig)
 
 with right:
